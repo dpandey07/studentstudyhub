@@ -1,9 +1,4 @@
-from pathlib import Path
-
-html_path = Path("/mnt/data/index.html")
-css_path = Path("/mnt/data/indexstyle.css")
-
-css = """* {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -186,18 +181,5 @@ footer p {
     td {
         padding: 9px;
     }
-}
-"""
-
-css_path.write_text(css, encoding="utf-8")
-
-# Remove old presentational table attributes because CSS now controls them.
-html = html_path.read_text(encoding="utf-8")
-html = html.replace('<table border="2" cellpadding="10">', '<table>')
-html_path.write_text(html, encoding="utf-8")
-
-print("CSS applied successfully.")
-print(f"HTML: {html_path}")
-print(f"CSS:  {css_path}")
 
 
